@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './style.css'; // Assuming your existing styles are in this file
+import './style.css';
 
 function AdminLogin() {
   const [credentials, setCredentials] = useState({
@@ -25,11 +25,11 @@ function AdminLogin() {
 
     // POST request to check admin credentials
     axios
-      .post('http://localhost:8081/admin-login', credentials) // Make sure your backend route matches this path
+      .post('http://localhost:8081/admin/login', credentials) // Make sure your backend route matches this path
       .then((res) => {
         if (res.data.Status === 'Success') {
           alert('Login Successful!');
-          navigate('/admin-dashboard'); // Adjust the route based on your needs
+          navigate('/');
         } else {
           alert(res.data.Error);
         }
@@ -63,7 +63,7 @@ function AdminLogin() {
             />
           </div>
           <div className="input-group mb-3 justify-content-center">
-            <button type="submit" className="btn btn-admin-login text-white w-50 fs-6">
+            <button type="submit" className="btn btn-admin-login text-black w-30 fs-6">
               Log In
             </button>
           </div>
@@ -74,3 +74,4 @@ function AdminLogin() {
 }
 
 export default AdminLogin;
+

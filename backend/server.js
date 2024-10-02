@@ -16,7 +16,7 @@ const db=mysql.createConnection({
     database: "Assessmentdb",
 })
 
-const salt=5;
+const salt=10;
 app.post("/register",(req,res)=>{
     const sql="INSERT INTO user(`username`, `email`, `password`) VALUES(?)";
     bcrypt.hash(req.body.password.toString(),salt,(err,hash)=>{
@@ -51,3 +51,6 @@ app.post("/login",(req,res)=>{
 app.listen(8081, ()=>{
     console.log("Listening");
 })
+
+
+

@@ -8,7 +8,7 @@ function LoginOptions() {
 
   const handleAdminLogin = () => {
     // Add navigation logic for admin login if needed
-    alert('Admin Login functionality coming soon!');
+    alert("Admin functionality coming soon")
   };
   
   const handleUserLogin = () => {
