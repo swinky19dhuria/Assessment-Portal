@@ -2,19 +2,19 @@ import React from 'react';
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './Home'
 import LoginRegister from './LoginRegister'
-import AfterRegister from './AfterRegister'
-import LoginOptions from './LoginOptions'
-import AdminLogin from './AdminLogin';
+import TaskDashboard from './TaskDashboard';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+
 
 function App() {
   return (
     <BrowserRouter>
     <Routes>
     <Route path='/' element={<Home/>}></Route>
-    <Route path="/options" element={<LoginOptions/>}></Route>
       <Route path='/register' element={<LoginRegister/>}></Route>
-      <Route path='/afterregister' element={<AfterRegister/>}></Route>
-      <Route path="/admin-login" element={<AdminLogin/>}> </Route>
+      <Route path="/task-dashboard" element={<TaskDashboard />} />
     </Routes>
     </BrowserRouter>
      
