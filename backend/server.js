@@ -1,99 +1,3 @@
-// import express from 'express'
-// import mysql from 'mysql2'
-// import cors from 'cors'
-// import bcrypt from 'bcrypt'
-// import jwt from 'jsonwebtoken'
-
-// const app=express()
-
-// app.use(express.json())
-
-// app.use(cors())
-
-// const db=mysql.createConnection({
-//     host:"localhost",
-//     user:"root",
-//     password: "38b1ae37",
-//     database: "todolist",
-// })
-
-// const salt=10;
-// app.post("/register",(req,res)=>{
-//     const sql="INSERT INTO users(`username`, `email`, `password`) VALUES(?)";
-//     bcrypt.hash(req.body.password.toString(),salt,(err,hash)=>{
-//         if(err) return res.json("Error")
-//             const values=[req.body.username, req.body.email,hash]
-//         db.query(sql,[values],(err,result)=>{
-//             if(err) console.log(err);
-//             else return res.json(result)
-//         })
-//     })
-// })
-
-// app.post("/login",(req,res)=>{
-//     const sql="SELECT * FROM users WHERE `email`= ?";
-//     db.query(sql,[req.body.email], (err,result)=>{
-//         if(err) return res.json({Error:"Error"})
-//             else{
-//         if(result.length>0){
-//             bcrypt.compare(req.body.password.toString(),result[0].password,(err,response)=>{
-//                 if(err) return res.json({Error:"Error"})
-//                     if(response) return res.json({Status:"Success"})
-//                         else return res.json({Error:"Wrong Password"})
-//             })
-//         }
-//         else{
-//             return res.json({Error:"Email doesnot exist"})
-//         }
-//         }
-//     })
-// }) 
-
-// app.get("/tasks", (req, res) => {
-//     const sql = "SELECT * FROM tasks";
-//     db.query(sql, (err, result) => {
-//       if (err) return res.status(500).json({ Error: "Error fetching tasks" });
-//       res.json(result);
-//     });
-//   });
-  
-//   // Create a new task
-//   app.post("/tasks", (req, res) => {
-//     const sql = "INSERT INTO tasks (name, description, dueDate, priority, status, assignee) VALUES (?, ?, ?, ?, ?, ?)";
-//     const values = [req.body.name, req.body.description, req.body.dueDate, req.body.priority, req.body.status,req.body.assignee];
-//     db.query(sql, values, (err, result) => {
-//       if (err) return res.status(500).json({ Error: "Error adding task" });
-//       const newTask = { id: result.insertId, ...req.body }; // Send back the created task
-//       res.status(201).json(newTask);
-//     });
-//   });
-  
-//   // Update a task
-//   app.put("/tasks/:id", (req, res) => {
-//     const sql = "UPDATE tasks SET name = ?, description = ?, dueDate = ?, priority = ?, status = ?, assignee = ? WHERE id = ?";
-//     const values = [req.body.name, req.body.description, req.body.dueDate, req.body.priority, req.body.status, req.body.assignee, req.params.id];
-//     db.query(sql, values, (err) => {
-//       if (err) return res.status(500).json({ Error: "Error updating task" });
-//       res.status(200).json({ message: "Task updated successfully" });
-//     });
-//   });
-  
-//   // Delete a task
-//   app.delete("/tasks/:id", (req, res) => {
-//     const sql = "DELETE FROM tasks WHERE id = ?";
-//     db.query(sql, [req.params.id], (err) => {
-//       if (err) return res.status(500).json({ Error: "Error deleting task" });
-//       res.status(200).json({ message: "Task deleted successfully" });
-//     });
-//   });
-  
-
-// app.listen(8081, ()=>{
-//     console.log("Listening");
-// })
-
-
-
 import express from 'express';
 import mysql from 'mysql2';
 import cors from 'cors';
@@ -112,7 +16,7 @@ const db = mysql.createConnection({
 });
 
 const salt = 10;
-const secretKey = "38b1ae37@S"; // Use a secure key
+const secretKey = "38b1ae37@S"; //secure key
 
 // Register Route
 app.post("/register", (req, res) => {
